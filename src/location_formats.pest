@@ -1,0 +1,22 @@
+
+signed_float = ${ sign? ~ float }
+	sign = @{ "+" | "-" }
+	float = @{ ASCII_DIGIT+ ~ ("." ~ ASCII_DIGIT+)? }
+
+signed_decimal_degrees = ${ signed_float ~ "°"? }
+
+compass_lat = { "N" | "S" }
+compass_lon = { "E" | "W" }
+
+decimal_degrees = ${ float ~ "°" }
+decimal_degrees_lat = { decimal_degrees }
+
+
+latitude = _{ SOI ~ signed_decimal_degrees ~ EOI }
+longitude = _{ SOI ~ signed_decimal_degrees ~ EOI }
+location = _{ SOI ~ location_signed_decimal_degrees ~ EOI }
+	separator = _{ "," }
+	location_signed_decimal_degrees = { signed_decimal_degrees ~ separator? ~ signed_decimal_degrees }
+
+
+WHITESPACE = _{ " " }
