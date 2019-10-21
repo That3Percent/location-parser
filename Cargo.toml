@@ -6,7 +6,7 @@ edition = "2018"
 description = "Parses latitude/longitude from strings in a wide variety of formats."
 readme = "README.md"
 categories = ["parser-implementations", "science"]
-keywords = ["ISO 6709", "location", "parse"]
+keywords = ["ISO-6709", "location", "parse"]
 license = "MIT"
 
 [badges]
